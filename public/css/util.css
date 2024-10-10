@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --text: #0f1213;
+    /* --background: #f6f9fa; */
+    --background: #F9F5F8;
+    --primary: #ea2c4c;
+    --secondary: #fce3ec;
+    --accent: #ee4864;
+    
+}
+/* :root {
+    --text: #120a16;
+    --background: #f9f4fb;
+    --primary: #9c43c6;
+    --secondary: #ebd5f5;
+    --accent: #b961e2;   
+} */
+
+
+body{
+    background-color: var(--background);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh !important;
+    overflow-x:hidden;
+
+    font-family: "Noto Sans", sans-serif;
+}

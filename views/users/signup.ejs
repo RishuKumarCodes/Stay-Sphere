@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate') %>
+    <style>
+        .navbar {
+            .logo {
+                filter: brightness(0) invert(1);
+            }
+        }
+
+    </style>
+    <img src="login-bg.svg" class="login-bg">
+    <div class="login">
+        <div class="frame">
+            <br>
+            <br>
+            <h1>Signup on Wanderlust</h1>
+            <h6>create new account</h6>
+            <br>
+            <form action="/signup" method="POST" class="needs-validation" novalidate>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" type="text" class="form-control" required>
+                <div class="valid-feedback">Looks good!</div>
+
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" type="text" class="form-control" required>
+                <div class="valid-feedback">Looks good!</div>
+
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" type="text" class="form-control" required>
+                <div class="valid-feedback">Looks good!</div>
+
+                <button>Sign-up</button>
+                <br>
+                <p class="offset-4">already a user? <a href="/login">log-in</a></p>
+            </form>
+        </div>
+    </div>
+    </div>

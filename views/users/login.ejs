@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate') %>
+    <style>
+        .navbar {
+            .logo {
+                filter: brightness(0) invert(1);
+            }
+        }
+        footer{
+            background-color: rgba(58, 58, 58, 0.233) !important;
+            p{
+                color: #cecece;
+            }
+            .container{
+                display: none;
+            }
+        }
+    </style>
+    <img src="login-bg.svg" class="login-bg">
+    <div class="login">
+        <div class=" frame">
+            <br>
+            <br>
+            <h1>Login to Wanderlust</h1>
+            <h6>welcome back!</h6>
+            <br>
+            <form action="/login" method="POST" class="needs-validation" novalidate>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" type="text" class="form-control" required>
+                <div class="valid-feedback">Looks good!</div>
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" type="text" class="form-control" required>
+                <div class="valid-feedback">Looks good!</div>
+
+                <button>Sign-up</button>
+                <br>
+                <p class="col-6 offset-3">don't have account? <a href="/signup">create-one</a></p>
+            </form>
+        </div>
+    </div>

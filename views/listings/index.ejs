@@ -1,0 +1,117 @@
+<% layout('/layouts/boilerplate.ejs') %>
+    <style>
+        .navbar {
+            position: fixed;
+        }
+    </style>
+    <header>
+        <img src="https://res.cloudinary.com/dsdabrhxs/image/upload/v1728387744/StaySphere-bg_ytlci0.jpg" alt="">
+        <div class="infos">
+            <h2>Your Home Away From Home</h2>
+            <div class="search-bar">
+                <div class="search-section">
+                    <input type="text" placeholder="Add destination" id="destination">
+                    <div class="dropdown" id="destinationDropdown">
+                        <p>Popular destinations</p>
+                        <ul>
+                            <li>London</li>
+                            <li>Paris</li>
+                            <li>Barcelona</li>
+                            <li>Dublin</li>
+                            <li>New York</li>
+                            <li>Rome</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-section">
+                    <input type="text" placeholder="Add dates" id="dates">
+                    <div class="dropdown" id="dateDropdown">
+                        <div id="datepicker"></div>
+                    </div>
+                </div>
+                <div class="search-section ">
+                    <input type="text" placeholder="Add guests" id="guests">
+                    <div class="dropdown last-dropdown" id="guestDropdown">
+                        <div class="guest-options">
+                            <label>Adults <span>(Age 13+)</span></label>
+                            <div>
+                                <button class="decrement">-</button>
+                                <span id="adults-count">0</span>
+                                <button class="increment">+</button>
+                            </div>
+                        </div>
+                        <div class="guest-options">
+                            <label>Children <span>(Age 1-12)</span></label>
+                            <div>
+                                <button class="decrement">-</button>
+                                <span id="children-count">0</span>
+                                <button class="increment">+</button>
+                            </div>
+                        </div>
+                        <div class="guest-options">
+                            <label>Infants <span>(Under 1)</span></label>
+                            <div>
+                                <button class="decrement">-</button>
+                                <span id="infants-count">0</span>
+                                <button class="increment">+</button>
+                            </div>
+                        </div>
+                        <div class="guest-options">
+                            <label>Pets</label>
+                            <div>
+                                <button class="decrement">-</button>
+                                <span id="pets-count">0</span>
+                                <button class="increment">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="searchBtn">Search</button>
+            </div>
+        </div>
+
+    </header>
+    <!-- ------------------------ filters ------------------------------------------ -->
+    <div class="filters">
+        <ul>
+            <li class="active"><a href="/listings?tag=all"><i class="fa-solid fa-mountain-sun"></i>All</a></li>
+            <li><a href="/listings?tag=rooms"><i class="fa-solid fa-bed"></i>Rooms</a></li>
+            <li><a href="/listings?tag=beach"><i class="fa-solid fa-umbrella-beach"></i>Beach</a></li>
+            <li><a href="/listings?tag=lakes"><i class="fa-solid fa-water"></i>Lakes</a></li>
+            <li><a href="/listings?tag=mountain"><i class="fa-solid fa-mountain"></i>Mountain</a></li>
+            <li><a href="/listings?tag=castles"><i class="fa-solid fa-chess-rook"></i>Castles</a></li>
+            <li><a href="/listings?tag=park"><i class="fa-solid fa-tree"></i>Park</a></li>
+            <li><a href="/listings?tag=camp"><i class="fa-solid fa-campground"></i>Camp</a></li>
+            <li><a href="/listings?tag=views"><i class="fa-brands fa-envira"></i>Views</a></li>
+            <li><a href="/listings?tag=boats"><i class="fa-solid fa-sailboat"></i>Boats</a></li>
+            <li><a href="/listings?tag=treehouse"><i class="fa-solid fa-monument"></i>Tree House</a></li>
+        </ul>
+    </div>
+
+
+    <!-- ------------------------ all listings-------------------------------------- -->
+    <div class="listing-container">
+        <div class="all-listings">
+            <% for(let listing of allListings){%>
+                <a class="card" href="/listings/<%=listing._id%>">
+                    <div style="width: 19rem;">
+                        <img src="<%=listing.image.url%>" class="card-img-top" alt="listing_image">
+                        <div class="card-body">
+                            <p class="card-text"><b>
+                                    <%=listing.title%>
+                                </b> <br>
+                                &#8377; <%=listing.price.toLocaleString("en-IN")%> / night</p>
+                        </div>
+                    </div>
+                </a>
+                <% }%>
+        </div>
+    </div>
+    <div
+        style="display: flex; flex-direction: column; width: 100vw; align-items: center; margin: 1.5rem 0; overflow: hidden;">
+        <img src="/end_of_page.svg" style="height: 150px;">
+        <h3>end of results</h3>
+        <br>
+    </div>
+
+    <script src="/js/home_page.js"></script>

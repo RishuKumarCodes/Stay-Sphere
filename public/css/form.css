@@ -1,0 +1,108 @@
+.form-container {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    max-width: min(600px, 100vw);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .form-label {
+        margin-left: 15px;
+    }
+
+    .form-control {
+        padding: 10px 15px;
+        border: 1px solid #ced4da;
+        border-radius: 15px;
+        background-color: var(--background);
+        font-size: 16px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s ease-in-out;
+
+        &:focus {
+            border-color: #80bdff;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    .form-row .form-group {
+        flex-basis: 48%;
+    }
+
+    button {
+        /* background-color: #ffedf0; */
+        padding: 9px 7px;
+        font-size: 18px;
+        border-radius: 10px;
+        width: 180px;
+        cursor: pointer;
+        margin: 0 auto;
+        transition: transform 200ms ease-in-out;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        border: #ff224b;
+        background-color: #ff224b;
+        color: white;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* -------------------------- checkboxes -------------------------- */
+    /* Styling checkboxes like pill buttons */
+    .tag-checkbox {
+        display: none;
+    }
+
+    .tag-checkbox+label {
+        background-color: var(--background);
+        border-radius: 20px;
+        padding: 6px 16px;
+        margin: 0.5rem;
+        cursor: pointer;
+        font-size: 14px;
+        border: 1px solid #d8d8d8;
+        transition: all 0.3s ease;
+    }
+
+    .tag-checkbox+label:hover {
+        background-color: #e0e0e0;
+    }
+
+    .tag-checkbox:checked+label {
+        background-color: #ffebf0;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        font-weight: bold;
+    }
+
+    .invalid-feedback {
+        color: red;
+        font-size: 0.9rem;
+    }
+
+
+    /* Responsive Design */
+    @media (max-width: 576px) {
+        .form-row {
+            flex-direction: column;
+        }
+
+        .form-row .form-group {
+            flex-basis: 100%;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+}

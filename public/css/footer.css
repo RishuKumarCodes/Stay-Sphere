@@ -1,0 +1,38 @@
+footer {
+    background-color: rgb(134, 25, 61);
+    padding-top: 2rem;
+    *{
+        color: white;
+    }
+    .container{
+        width: 100vw;
+    }
+    .content {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        div {
+            width: min(350px, 100vw);
+            padding-bottom: 2rem;
+        }
+    }
+
+    .socials-link div {
+        display: flex;
+        gap: 20px;
+
+        a {
+            font-size: 1.7rem;
+            margin: 10px;
+            width: 15px;
+            text-decoration: none;
+            transition: 150ms ease-in-out;
+            &:hover {
+                scale: 120%;
+
+            }
+        }
+    }
+}

@@ -1,0 +1,117 @@
+<% layout('layouts/boilerplate') %>
+    <style>
+        footer {
+            background-color: var(--secondary) !important;
+
+            * {
+                color: rgb(71, 71, 71) !important;
+            }
+        }
+    </style>
+    <div class="form-container cont-shadow mt-5">
+        <h2 class="mb-4">Add Listing</h2>
+        <form method="POST" action="/listings" class="row g-3 needs-validation" novalidate
+            enctype="multipart/form-data">
+            <div class="col-md-12">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" class="form-control" id="title" name="listing[title]" placeholder="Enter title"
+                    required>
+                <div class="invalid-feedback">
+                    Please provide a title.
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <label for="description" class="form-label">Description:</label>
+                <textarea id="description" class="form-control" name="listing[description]"
+                    placeholder="Write your description..." required></textarea>
+                <div class="invalid-feedback">
+                    Please provide a description.
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <label for="image" class="form-label">Attach Image:</label>
+                <input type="file" class="form-control" id="image" name="listing[image]" required>
+                <div class="invalid-feedback">
+                    Please upload <b>.jpg</b> or <b>.png</b> or <b>.jpeg</b> file format.
+                </div>
+            </div>
+            <!-- add tags form  -->
+            <div class="col-md-12">
+                <label class="form-label">Select Tags (at least one):</label><br>
+                <input class="form-check-input tag-checkbox" type="checkbox" id="beach" name="listing[tags][]" value="beach">
+                <label class="form-check-label" for="beach">Beach</label>
+                <input class="form-check-input tag-checkbox" type="checkbox" id="castles" name="listing[tags][]" value="castles">
+                <label class="form-check-label" for="castles">Castles</label>
+                <input class="form-check-input tag-checkbox" type="checkbox" id="rooms" name="listing[tags][]" value="rooms">
+                <label class="form-check-label" for="rooms">Rooms</label>
+                <input class="form-check-input tag-checkbox" type="checkbox" id="park" name="listing[tags][]" value="park">
+                <label class="form-check-label" for="park">Park</label>
+                <input class="form-check-input tag-checkbox" type="checkbox" id="lakes" name="listing[tags][]" value="lakes">
+                <label class="form-check-label" for="lakes">Lakes</label>
+                <input class="form-check-input tag-checkbox" type="checkbox" id="mountain" name="listing[tags][]" value="mountain">
+                <label class="form-check-label" for="mountain">Mountain</label>
+                <div class="invalid-feedback d-none" id="tag-feedback">Please select at least one tag.</div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="price" class="form-label">Price:</label>
+                <input type="number" class="form-control" id="price" name="listing[price]" placeholder="e.g., ₹1,000"
+                    required>
+                <div class="invalid-feedback">
+                    Please provide a price.
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="country" class="form-label">Country:</label>
+                <input type="text" class="form-control" id="country" name="listing[country]" placeholder="e.g., India"
+                    required>
+                <div class="invalid-feedback">
+                    Please provide a country.
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <label for="location" class="form-label">Location:</label>
+                <input type="text" class="form-control" id="location" name="listing[location]"
+                    placeholder="e.g., Chandni Chowk, Delhi" required>
+                <div class="invalid-feedback">
+                    Please provide a location.
+                </div>
+            </div>
+
+
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-dark">Add</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            const checkboxes = document.querySelectorAll('.tag-checkbox');
+            let checked = false;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checked = true;
+                }
+            });
+    
+            if (!checked) {
+                e.preventDefault(); // Prevent form submission
+                document.getElementById('tag-feedback').classList.remove('d-none');
+            } else {
+                document.getElementById('tag-feedback').classList.add('d-none');
+            }
+        });
+    </script>
+    
+
+
+    <!-- Bootstrap JS and dependencies (optional but recommended) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

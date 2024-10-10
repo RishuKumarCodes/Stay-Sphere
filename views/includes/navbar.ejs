@@ -1,0 +1,68 @@
+
+<div class="navbar">
+    <div class="left">
+        <a class="logo" href="/listings">
+            <img src="/logo.svg" alt="">Stay Sphere
+        </a>
+        <form action="" class="hide3">
+            <input class="hide2" type="text" placeholder="Search" class="search-bar">
+            <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+    </div>
+    <div class="right">
+        <a href="/listings/new" class="add-new hide"><i class="fa-solid fa-plus"></i> Add New</a>
+        <div class="profile-dropdown">
+            <button class="profile-btn"><i class="fa-solid fa-user"></i>&nbsp;
+            <% if(currUser) { %>
+            <%=currUser.username%>
+            <% } else{%>Login<%}%></button>
+            <div class="dropdown-content">
+                <% if(!currUser) { %>
+                    <a class="nav-link" href="/login"><i class="fa-solid fa-user"></i> login</a>
+                    <a class="nav-link" href="/signup"><i class="fa-solid fa-user-plus"></i> new account</a>
+                <% } if(currUser) { %>
+                            <p><b>hello, <%=currUser.username%></b></p>
+                            <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i>&nbsp; logout</a>
+                <% } %>
+                <hr>
+                    <a href="/listings/new"><i class="fa-solid fa-plus"></i>&nbsp; list your property</a>
+                    <a href="#"><i class="fa-solid fa-tent"></i></i>&nbsp; Your listings</a>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const navbar = document.querySelector('.navbar');
+    const profileBtn = document.querySelector('.profile-btn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+
+    // Profile dropdown toggle
+    profileBtn.addEventListener('click', function() {
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        profileBtn.style.boxShadow = '0 0 10px #0000003b';
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.profile-btn')) {
+            dropdownContent.style.display = 'none';
+            profileBtn.style.boxShadow = 'none';
+        }
+    });
+
+    // Navbar scroll behavior
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 150) {
+            navbar.classList.add('opaque');
+        } else {
+            navbar.classList.remove('opaque');
+        }
+    });
+});
+
+
+</script>
